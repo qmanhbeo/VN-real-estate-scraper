@@ -63,20 +63,6 @@ This will:
 * Convert price/area/time → **`preprocessed-data/guland_final.csv`**
 * Generate quick descriptive stats
 
-### 6) 🛍️ Publish a public‑safe dataset (PII‑reduced)
-
-Either run the full pipeline (Step 5) which **already** includes this as the final step, **or** run the publish step standalone:
-
-```bash
-python -m scripts.makePublicData
-```
-
-It produces **`preprocessed-data/guland_public.csv`** by:
-
-* Dropping: `province_from_filename`, `Images`, `URL`
-* Converting `Avatar` → **1** if non‑empty, **0** if empty
-* Keeping the rest (e.g., `Title`, `Description`, `Location`, `Agent Name`, etc.)
-
 ---
 
 ## 📁 Project Structure
