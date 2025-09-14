@@ -1,4 +1,4 @@
-from scripts import appendData, cleanData, imputeData, preprocessData, descStats
+from scripts import appendData, cleanData, imputeData, preprocessData, descStats, makePublicData
 
 def run_pipeline():
     print("\n🧩 Step 1: Appending CSVs...")
@@ -15,6 +15,9 @@ def run_pipeline():
 
     print("\n📊 Step 5: Descriptive stats...")
     descStats.run()
+
+    print("\n🔓 Step 6: Making public dataset...")
+    makePublicData.run()
 
 if __name__ == "__main__":
     run_pipeline()

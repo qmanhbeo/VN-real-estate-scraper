@@ -12,7 +12,9 @@ headers = {"User-Agent": "Mozilla/5.0"}
 script_dir = os.path.dirname(os.path.abspath(__file__))
 output_dir = os.path.join(script_dir, "scraped-data")
 os.makedirs(output_dir, exist_ok=True)
-checkpoint_path = os.path.join(output_dir, "done.log")
+checkpoint_dir = os.path.join(output_dir, "checkpoint")
+os.makedirs(checkpoint_dir, exist_ok=True)
+checkpoint_path = os.path.join(checkpoint_dir, "done.log")
 listing_base = "https://guland.vn"
 
 province_slugs = {
@@ -113,6 +115,13 @@ for province in province_slugs:
                     break
 
                 print(f"📦 {len(listings)} listings on page {page}")
+
+                # --- NEW: cutoff condition ---
+                if len(listings) < 45:
+                    print("ℹ️ Less than 45 listings → scrape this page and stop pagination after.")
+                    last_page = True
+                else:
+                    last_page = False
 
                 for item in tqdm(listings, desc=f"🔄 {province}-{prop_type}-p{page}", unit="listing"):
                     try:
@@ -227,6 +236,8 @@ for province in province_slugs:
                         continue
 
                 page += 1
+                if last_page:
+                    break  # stop pagination when listings < 45
                 time.sleep(2)
 
             # Save per province

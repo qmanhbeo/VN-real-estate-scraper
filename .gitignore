@@ -1,0 +1,9 @@
+# Ignore data outputs
+preprocessed-data/
+scraped-data/
+
+# Optional: ignore Python cache, logs, and OS cruft
+scripts/__pycache__/
+*.log
+*.pyc
+.DS_Store

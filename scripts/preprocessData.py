@@ -70,6 +70,7 @@ def run():
     # 1) Price
     logging.info("Converting Price to million...")
     df['Price'] = df['Price'].apply(parse_price_to_million)
+    df = df.dropna(subset=['Price'])
 
     # 2) Area
     logging.info("Parsing Area to numeric...")
