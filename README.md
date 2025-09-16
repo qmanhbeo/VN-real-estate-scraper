@@ -1,6 +1,6 @@
 # 🏠 Vietnam Real Estate Data Pipeline
 
-This project scrapes and processes Vietnamese real estate listings from a publicly accessible site, turning messy web listings into clean, analyzable CSV datasets.
+This project scrapes and processes Vietnamese real estate listings from Guland.vn, a publicly accessible site, turning messy web listings into clean, analyzable CSV datasets.
 
 *Disclaimer: Personal initiative; not affiliated with any organization. Originally built to support the author's research and purchase decisions.*
 
